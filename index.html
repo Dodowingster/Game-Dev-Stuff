@@ -69,7 +69,7 @@
         function drawCard() {
             if (deck.length > 0) {
                 const card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
-                document.getElementById('deck-output').innerText = "You drew: " + card.name + " (" + card.type + ")";
+                document.getElementById('deck-output').innerText = "You drew: " + card.name + " (" + card.class + ")" + "the" + card.type;
                 const partyBoard = document.getElementById(`player${currentPlayer}-party`);
                 const newMember = document.createElement('div');
                 newMember.innerText = card.name + " [" + card.type + "]";
