@@ -3,22 +3,32 @@
         {
             "name": "Forest",
             "icon": "🌲",
-            "description": "A dense forest filled with wild creatures."
+            "description": "A dense forest filled with wild creatures. You may spend an AP to explore the forest and draw a treasure card."
         },
         {
             "name": "Village",
             "icon": "🏡",
-            "description": "A peaceful village with friendly inhabitants."
+            "description": "A peaceful village with friendly inhabitants. You may spend any of your APs to draw a card from the deck."
         },
         {
             "name": "Mountain",
             "icon": "⛰️",
-            "description": "A towering mountain with treacherous paths."
+            "description": "A towering mountain with treacherous paths. You may spend an AP to climb the mountain and gain a treasure card."
         },
         {
-            "name": "Castle",
+            "name": "Town",
             "icon": "🏰",
-            "description": "The final destination, home to the boss."
+            "description": "A bustling town full of vibrant townsfolk. You may spend an AP to recruit another party member from the companions deck."
+        },
+        {
+            "name": "Cave",
+            "icon": "🕳️",
+            "description": "A dark cave filled with hidden treasures. Spend an AP to draw a treasure card."
+        },
+        {
+            "name": "Lake",
+            "icon": "🏞️",
+            "description": "A serene lake with magical properties. Spend an AP to restore 1 HP."
         }
     ]
 }
