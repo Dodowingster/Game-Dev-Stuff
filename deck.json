@@ -2,37 +2,37 @@
     "characters": [
         {
             "name": "Gina",
-            "class": "Warrior",
+            "job": "Warrior",
             "type": "Fighter",
             "power": 8
         },
         {
             "name": "Heelia",
-            "class": "Cleric",
+            "job": "Cleric",
             "type": "Healer",
             "power": 5
         },
         {
             "name": "Arvel",
-            "class": "Rogue",
+            "job": "Rogue",
             "type": "Assassin",
             "power": 6
         },
         {
             "name": "Eldrin",
-            "class": "Wizard",
+            "job": "Wizard",
             "type": "Caster",
             "power": 7
         },
         {
             "name": "Thalia",
-            "class": "Ranger",
+            "job": "Ranger",
             "type": "Archer",
             "power": 6
         },
         {
             "name": "Asheford",
-            "class": "Paladin",
+            "job": "Paladin",
             "type": "Tank",
             "power": 7
         }
