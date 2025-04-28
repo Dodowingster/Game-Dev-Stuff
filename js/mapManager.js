@@ -20,6 +20,8 @@ async function loadMap(mapFile = 'assets/maps/world_map.json') {
  * Render all nodes and their connections.
  */
 function renderMap() {
+    console.log('Rendering map...');
+    console.log('Map nodes:', document.getElementById('map-nodes'));
     const mapDiv = document.querySelector('.map');
     mapDiv.innerHTML = '<h2>Map</h2>';
     const container = document.createElement('div');

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -57,10 +56,9 @@
         async function initGame() {
             try {
                 gameState.deck = await loadDeck('characters');
-                renderMap();
+                const mapData = await loadMapData(); // Ensure map data is loaded
+                renderMap(mapData); // Pass the map data to renderMap
                 highlightCurrentNode();
-                document.getElementById('draw-btn').onclick = null;
-                document.getElementById('end-turn-btn').onclick = null;
                 document.getElementById('draw-btn').onclick = drawCard;
                 document.getElementById('end-turn-btn').onclick = endTurn;
             } catch (error) {
