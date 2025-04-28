@@ -1,0 +1,48 @@
+{
+    "characters": [
+        {
+            "name": "Knight",
+            "type": "Fighter",
+            "power": 8
+        },
+        {
+            "name": "Cleric",
+            "type": "Healer",
+            "power": 5
+        },
+        {
+            "name": "Rogue",
+            "type": "Assassin",
+            "power": 6
+        },
+        {
+            "name": "Mage",
+            "type": "Caster",
+            "power": 7
+        },
+        {
+            "name": "Ranger",
+            "type": "Archer",
+            "power": 6
+        },
+        {
+            "name": "Paladin",
+            "type": "Tank",
+            "power": 7
+        }
+    ],
+    "events": [
+        {
+            "name": "Goblin Ambush",
+            "difficulty": 3
+        },
+        {
+            "name": "Treasure Chest",
+            "reward": "Item"
+        },
+        {
+            "name": "Ancient Puzzle",
+            "difficulty": 5
+        }
+    ]
+}
