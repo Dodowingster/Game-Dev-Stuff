@@ -30,5 +30,19 @@
             "type": "Tank",
             "power": 7
         }
+    ],
+    "events": [
+        {
+            "name": "Goblin Ambush",
+            "difficulty": 3
+        },
+        {
+            "name": "Treasure Chest",
+            "reward": "Item"
+        },
+        {
+            "name": "Ancient Puzzle",
+            "difficulty": 5
+        }
     ]
 }

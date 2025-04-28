@@ -1,33 +1,44 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Tabletop RPG: Party Adventure!</title>
+    <title>Your RPG Game</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
     <h1>Tabletop RPG: Party Adventure!</h1>
 
     <!-- Deck Area -->
     <div class="deck">
         <h2>Shared Deck</h2>
-        <button id="draw-btn">Draw Card</button>
+        <button onclick="drawCard()">Draw Card</button>
         <div id="deck-output"></div>
     </div>
 
     <!-- Map Area -->
     <div class="map">
         <h2>Map</h2>
-        <div id="map-nodes"></div>
+        <div>
+            <div class="node" onclick="moveTo('Forest')">🌲 Forest</div>
+            <div class="node" onclick="moveTo('Village')">🏡 Village</div>
+            <div class="node" onclick="moveTo('Mountain')">⛰️ Mountain</div>
+            <div class="node" onclick="moveTo('Castle')">🏰 Castle (Boss)</div>
+        </div>
     </div>
 
     <!-- Party Boards -->
     <div class="party-board">
         <h2>Player Parties</h2>
-        <div class="party" id="player1-party"><strong>Player 1:</strong></div>
-        <div class="party" id="player2-party"><strong>Player 2:</strong></div>
-        <!-- Add more players if needed -->
+        <div class="party" id="player1-party">
+            <strong>Player 1:</strong>
+        </div>
+        <div class="party" id="player2-party">
+            <strong>Player 2:</strong>
+        </div>
+        <!-- Add Player 3 and 4 similarly -->
     </div>
 
     <!-- Event/Encounter Area -->
@@ -40,65 +51,51 @@
     <div class="turn-tracker">
         <h2>Turn</h2>
         <div id="turn-output">Current Player: Player 1</div>
-        <button id="end-turn-btn">End Turn</button>
+        <button onclick="endTurn()">End Turn</button>
     </div>
 
-    <!-- Scripts -->
-    <script src="js/deckManager.js"></script>
-    <script src="js/mapManager.js"></script>
-    <script src="js/gameLogic.js"></script>
     <script>
-        const gameState = {
-            currentPlayer: 1,
-            deck: []
-        };
+        let deck = [];
+        let currentPlayer = 1;
 
-        async function initGame() {
-            try {
-                gameState.deck = await loadDeck('characters');
-                const mapData = await loadMapData(); // Ensure map data is loaded
-                renderMap(mapData); // Pass the map data to renderMap
-                highlightCurrentNode();
-                document.getElementById('draw-btn').onclick = drawCard;
-                document.getElementById('end-turn-btn').onclick = endTurn;
-            } catch (error) {
-                console.error('Error initializing game:', error);
-                document.getElementById('deck-output').innerText = 'Failed to load deck!';
+        // Load JSON Deck
+        async function loadDeck() {
+            const response = await fetch('deck.json');
+            const data = await response.json();
+            deck = data.characters; // You could also separate if you want
+        }
+
+        // Draw a character
+        function drawCard() {
+            if (deck.length > 0) {
+                const card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
+                document.getElementById('deck-output').innerText = "You drew: " + card.name + " (" + card.type + ")";
+                const partyBoard = document.getElementById(`player${currentPlayer}-party`);
+                const newMember = document.createElement('div');
+                newMember.innerText = card.name + " [" + card.type + "]";
+                partyBoard.appendChild(newMember);
+            } else {
+                document.getElementById('deck-output').innerText = "Deck is empty!";
             }
         }
 
-        function drawCard() {
-            if (!gameState.deck || gameState.deck.length === 0) {
-                document.getElementById('deck-output').innerText = 'Deck is empty!';
-                return;
-            }
-            const idx = Math.floor(Math.random() * gameState.deck.length);
-            const card = gameState.deck.splice(idx, 1)[0];
-            document.getElementById('deck-output').innerText = `You drew: ${card.name} (${card.type})`;
-            const slot = document.getElementById(`player${gameState.currentPlayer}-party`);
-            const div = document.createElement('div');
-            div.setAttribute('role', 'listitem');
-            div.innerText = `${card.name} [${card.type}]`;
-            slot.appendChild(div);
+        // Move
+        function moveTo(location) {
+            document.getElementById('event-output').innerText = "You moved to: " + location;
+            // Later you can load events from JSON too
         }
 
         function endTurn() {
-            const totalPlayers = 2;
-            gameState.currentPlayer = (gameState.currentPlayer % totalPlayers) + 1;
-            document.getElementById('turn-output').innerText = `Current Player: Player ${gameState.currentPlayer}`;
+            currentPlayer = (currentPlayer % 2) + 1;
+            document.getElementById('turn-output').innerText = "Current Player: Player " + currentPlayer;
         }
 
-        // Expose mapManager functions globally
-        function mapTryMove(id) {
-            try {
-                tryMove(id);
-            } catch (error) {
-                console.error('Error in mapTryMove:', error);
-            }
-        }
-
-        window.onload = initGame;
+        // Call the loadDeck at the start
+        window.onload = loadDeck;
     </script>
+
+
+
 </body>
 
 </html>
