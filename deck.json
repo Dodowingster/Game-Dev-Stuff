@@ -1,32 +1,38 @@
 {
     "characters": [
         {
-            "name": "Knight",
+            "name": "Gina",
+            "class": "Warrior",
             "type": "Fighter",
             "power": 8
         },
         {
-            "name": "Cleric",
+            "name": "Heelia",
+            "class": "Cleric",
             "type": "Healer",
             "power": 5
         },
         {
-            "name": "Rogue",
+            "name": "Arvel",
+            "class": "Rogue",
             "type": "Assassin",
             "power": 6
         },
         {
-            "name": "Mage",
+            "name": "Eldrin",
+            "class": "Wizard",
             "type": "Caster",
             "power": 7
         },
         {
-            "name": "Ranger",
+            "name": "Thalia",
+            "class": "Ranger",
             "type": "Archer",
             "power": 6
         },
         {
-            "name": "Paladin",
+            "name": "Asheford",
+            "class": "Paladin",
             "type": "Tank",
             "power": 7
         }
