@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Tabletop RPG: Party Adventure!</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -63,9 +63,6 @@
                 document.getElementById('end-turn-btn').onclick = null;
                 document.getElementById('draw-btn').onclick = drawCard;
                 document.getElementById('end-turn-btn').onclick = endTurn;
-            } catch (error) {
-                console.error('Error initializing game:', error);
-                document.getElementById('deck-output').innerText = 'Failed to load deck!';
             }
         }
 
