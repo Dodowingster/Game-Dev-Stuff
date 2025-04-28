@@ -54,47 +54,7 @@
         <button onclick="endTurn()">End Turn</button>
     </div>
 
-    <script>
-        let deck = [];
-        let currentPlayer = 1;
-
-        // Load JSON Deck
-        async function loadDeck() {
-            const response = await fetch('deck.json');
-            const data = await response.json();
-            deck = data.characters; // You could also separate if you want
-        }
-
-        // Draw a character
-        function drawCard() {
-            if (deck.length > 0) {
-                const card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
-                document.getElementById('deck-output').innerText = "You drew: " + card.name + " (" + card.job + ")" + " the " + card.type;
-                const partyBoard = document.getElementById(`player${currentPlayer}-party`);
-                const newMember = document.createElement('div');
-                newMember.innerText = card.name + " (" + card.job + ")" + " the " + card.type;
-                partyBoard.appendChild(newMember);
-            } else {
-                document.getElementById('deck-output').innerText = "Deck is empty!";
-            }
-        }
-
-        // Move
-        function moveTo(location) {
-            document.getElementById('event-output').innerText = "You moved to: " + location;
-            // Later you can load events from JSON too
-        }
-
-        function endTurn() {
-            currentPlayer = (currentPlayer % 2) + 1;
-            document.getElementById('turn-output').innerText = "Current Player: Player " + currentPlayer;
-        }
-
-        // Call the loadDeck at the start
-        window.onload = loadDeck;
-    </script>
-
-
+    <script type="module" src="scripts/main.js"></script>
 
 </body>
 
