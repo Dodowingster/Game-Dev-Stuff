@@ -72,7 +72,7 @@
                 document.getElementById('deck-output').innerText = "You drew: " + card.name + " (" + card.job + ")" + " the " + card.type;
                 const partyBoard = document.getElementById(`player${currentPlayer}-party`);
                 const newMember = document.createElement('div');
-                newMember.innerText = card.name + " [" + card.type + "]";
+                newMember.innerText = card.name + " (" + card.job + ")" + " the " + card.type;
                 partyBoard.appendChild(newMember);
             } else {
                 document.getElementById('deck-output').innerText = "Deck is empty!";
