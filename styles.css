@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    text-align: center;
+}
+
+.deck,
+.map,
+.party-board,
+.event-area,
+.turn-tracker {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.party {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.node {
+    display: inline-block;
+    margin: 5px;
+    padding: 20px;
+    background: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
