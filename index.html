@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Your RPG Game</title>
+    <title>Tabletop RPG: Party Adventure!</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +21,7 @@
             padding: 20px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .party {
@@ -36,42 +37,33 @@
             background: #ccc;
             border-radius: 5px;
             cursor: pointer;
+            user-select: none;
         }
     </style>
 </head>
 
 <body>
-
     <h1>Tabletop RPG: Party Adventure!</h1>
 
     <!-- Deck Area -->
     <div class="deck">
         <h2>Shared Deck</h2>
-        <button onclick="drawCard()">Draw Card</button>
+        <button id="draw-btn">Draw Card</button>
         <div id="deck-output"></div>
     </div>
 
     <!-- Map Area -->
     <div class="map">
         <h2>Map</h2>
-        <div>
-            <div class="node" onclick="moveTo('Forest')">🌲 Forest</div>
-            <div class="node" onclick="moveTo('Village')">🏡 Village</div>
-            <div class="node" onclick="moveTo('Mountain')">⛰️ Mountain</div>
-            <div class="node" onclick="moveTo('Castle')">🏰 Castle (Boss)</div>
-        </div>
+        <div id="map-nodes"></div>
     </div>
 
     <!-- Party Boards -->
     <div class="party-board">
         <h2>Player Parties</h2>
-        <div class="party" id="player1-party">
-            <strong>Player 1:</strong>
-        </div>
-        <div class="party" id="player2-party">
-            <strong>Player 2:</strong>
-        </div>
-        <!-- Add Player 3 and 4 similarly -->
+        <div class="party" id="player1-party"><strong>Player 1:</strong></div>
+        <div class="party" id="player2-party"><strong>Player 2:</strong></div>
+        <!-- Add more players if needed -->
     </div>
 
     <!-- Event/Encounter Area -->
@@ -84,51 +76,52 @@
     <div class="turn-tracker">
         <h2>Turn</h2>
         <div id="turn-output">Current Player: Player 1</div>
-        <button onclick="endTurn()">End Turn</button>
+        <button id="end-turn-btn">End Turn</button>
     </div>
 
+    <!-- Scripts -->
+    <script src="js/deckManager.js"></script>
+    <script src="js/mapManager.js"></script>
+    <script src="js/gameLogic.js"></script>
     <script>
-        let deck = [];
         let currentPlayer = 1;
+        let deck = [];
 
-        // Load JSON Deck
-        async function loadDeck() {
-            const response = await fetch('deck.json');
-            const data = await response.json();
-            deck = data.characters; // You could also separate if you want
+        // Initialize game
+        async function initGame() {
+            deck = await loadDeck('characters');
+            renderMap();
+            highlightCurrentNode();
+            document.getElementById('draw-btn').onclick = drawCard;
+            document.getElementById('end-turn-btn').onclick = endTurn;
         }
 
-        // Draw a character
+        // Draw a character from the shared deck
         function drawCard() {
-            if (deck.length > 0) {
-                const card = deck.splice(Math.floor(Math.random() * deck.length), 1)[0];
-                document.getElementById('deck-output').innerText = "You drew: " + card.name + " (" + card.type + ")";
-                const partyBoard = document.getElementById(`player${currentPlayer}-party`);
-                const newMember = document.createElement('div');
-                newMember.innerText = card.name + " [" + card.type + "]";
-                partyBoard.appendChild(newMember);
-            } else {
-                document.getElementById('deck-output').innerText = "Deck is empty!";
+            if (deck.length === 0) {
+                document.getElementById('deck-output').innerText = 'Deck is empty!';
+                return;
             }
+            const idx = Math.floor(Math.random() * deck.length);
+            const card = deck.splice(idx, 1)[0];
+            document.getElementById('deck-output').innerText = `You drew: ${card.name} (${card.type})`;
+            const slot = document.getElementById(`player${currentPlayer}-party`);
+            const div = document.createElement('div');
+            div.innerText = `${card.name} [${card.type}]`;
+            slot.appendChild(div);
         }
 
-        // Move
-        function moveTo(location) {
-            document.getElementById('event-output').innerText = "You moved to: " + location;
-            // Later you can load events from JSON too
-        }
-
+        // End turn and switch player
         function endTurn() {
-            currentPlayer = (currentPlayer % 2) + 1;
-            document.getElementById('turn-output').innerText = "Current Player: Player " + currentPlayer;
+            currentPlayer = (currentPlayer % 2) + 1; // adjust for number of players
+            document.getElementById('turn-output').innerText = `Current Player: Player ${currentPlayer}`;
         }
 
-        // Call the loadDeck at the start
-        window.onload = loadDeck;
+        // Expose mapManager functions globally
+        function mapTryMove(id) { tryMove(id); }
+
+        window.onload = initGame;
     </script>
-
-
-
 </body>
 
 </html>
