@@ -11,6 +11,24 @@
 
     <h1>Tabletop RPG: Party Adventure!</h1>
 
+    <!-- Player Management -->
+    <div class="player-management">
+        <h2>Manage Players</h2>
+        <div>
+            <input type="text" id="add-player-name" placeholder="Player Name">
+            <button onclick="handleAddPlayer()">Add Player</button>
+        </div>
+        <div>
+            <input type="text" id="remove-player-id" placeholder="Player ID (e.g., player3)">
+            <button onclick="handleRemovePlayer()">Remove Player</button>
+        </div>
+        <div>
+            <input type="text" id="rename-player-id" placeholder="Player ID (e.g., player1)">
+            <input type="text" id="rename-player-name" placeholder="New Player Name">
+            <button onclick="handleRenamePlayer()">Rename Player</button>
+        </div>
+    </div>
+
     <!-- Party Boards -->
     <div class="party-board">
         <h2>Player Parties</h2>
