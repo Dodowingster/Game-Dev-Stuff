@@ -1,0 +1,24 @@
+{
+    "nodes": [
+        {
+            "name": "Forest",
+            "icon": "🌲",
+            "description": "A dense forest filled with wild creatures."
+        },
+        {
+            "name": "Village",
+            "icon": "🏡",
+            "description": "A peaceful village with friendly inhabitants."
+        },
+        {
+            "name": "Mountain",
+            "icon": "⛰️",
+            "description": "A towering mountain with treacherous paths."
+        },
+        {
+            "name": "Castle",
+            "icon": "🏰",
+            "description": "The final destination, home to the boss."
+        }
+    ]
+}
