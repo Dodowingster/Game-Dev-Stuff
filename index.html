@@ -11,6 +11,26 @@
 
     <h1>Tabletop RPG: Party Adventure!</h1>
 
+    <!-- Party Boards -->
+    <div class="party-board">
+        <h2>Player Parties</h2>
+        <div id="player-slots">
+            <!-- Existing player slots will be dynamically managed here -->
+            <div class="party" id="player1-party">
+                <strong id="player1-name">Player 1:</strong>
+                <input type="text" id="player1-input" placeholder="Rename Player 1">
+                <button onclick="renamePlayer('player1')">Rename</button>
+            </div>
+            <div class="party" id="player2-party">
+                <strong id="player2-name">Player 2:</strong>
+                <input type="text" id="player2-input" placeholder="Rename Player 2">
+                <button onclick="renamePlayer('player2')">Rename</button>
+            </div>
+        </div>
+        <button onclick="addPlayer()">Add Player</button>
+        <button onclick="removePlayer()">Remove Player</button>
+    </div>
+
     <!-- Deck Area -->
     <div class="deck">
         <h2>Shared Deck</h2>
@@ -22,18 +42,6 @@
     <div class="map">
         <h2>Map</h2>
         <div></div> <!-- Map nodes will be dynamically inserted here -->
-    </div>
-
-    <!-- Party Boards -->
-    <div class="party-board">
-        <h2>Player Parties</h2>
-        <div class="party" id="player1-party">
-            <strong>Player 1:</strong>
-        </div>
-        <div class="party" id="player2-party">
-            <strong>Player 2:</strong>
-        </div>
-        <!-- Add Player 3 and 4 similarly -->
     </div>
 
     <!-- Event/Encounter Area -->
