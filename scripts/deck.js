@@ -1,7 +1,7 @@
 let deck = [];
 
 export async function loadDeck() {
-    const response = await fetch('deck.json');
+    const response = await fetch('assets/cards/characters.json');
     const data = await response.json();
     deck = data.characters;
 }
