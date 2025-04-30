@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Monster Slayer",
+        "description": "Defeat 3 monsters or 1 boss monster to complete this quest.",
+        "type": "Combat"
+    },
+    {
+        "name": "Treasure Hunter",
+        "description": "Find and collect 5 rare items hidden across the map.",
+        "type": "Exploration"
+    },
+    {
+        "name": "Rescue Mission",
+        "description": "Locate and rescue the trapped NPC in the abandoned ruins.",
+        "type": "Exploration"
+    },
+    {
+        "name": "Courier Duty",
+        "description": "Fetch the enchanted sword from the blacksmith and deliver it to the knight at the castle.",
+        "type": "Delivery"
+    },
+    {
+        "name": "Herbalist's Request",
+        "description": "Gather 10 healing herbs from the forest and return them to the herbalist in the village.",
+        "type": "Collection"
+    },
+    {
+        "name": "Defender of the Realm",
+        "description": "Protect the village from an incoming wave of 10 enemies.",
+        "type": "Combat"
+    },
+    {
+        "name": "Artifact Recovery",
+        "description": "Retrieve the ancient artifact from the dungeon and bring it back to the museum.",
+        "type": "Exploration"
+    },
+    {
+        "name": "Beast Tamer",
+        "description": "Capture and tame a wild beast to assist you in future battles.",
+        "type": "Combat"
+    },
+    {
+        "name": "Explorer's Challenge",
+        "description": "Discover and map out 3 hidden locations in the game world.",
+        "type": "Exploration"
+    },
+    {
+        "name": "Merchant's Favor",
+        "description": "Deliver 3 crates of supplies to the merchant in the neighboring town.",
+        "type": "Delivery"
+    }
+]
