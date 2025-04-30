@@ -1,0 +1,34 @@
+{
+    "images": {
+        "Gina": {
+            "path": "assets/images/characters/gina.png",
+            "alt": "A fierce warrior with a sword",
+            "resolution": "512x512"
+        },
+        "Heelia": {
+            "path": "assets/images/characters/heelia.png",
+            "alt": "A kind cleric holding a healing staff",
+            "resolution": "512x512"
+        },
+        "Arvel": {
+            "path": "assets/images/characters/arvel.png",
+            "alt": "A stealthy rogue with daggers",
+            "resolution": "512x512"
+        },
+        "Eldrin": {
+            "path": "assets/images/characters/eldrin.png",
+            "alt": "A wise wizard casting a spell",
+            "resolution": "512x512"
+        },
+        "Thalia": {
+            "path": "assets/images/characters/thalia.png",
+            "alt": "A skilled ranger with a bow",
+            "resolution": "512x512"
+        },
+        "Asheford": {
+            "path": "assets/images/characters/asheford.png",
+            "alt": "A noble paladin with a shield",
+            "resolution": "512x512"
+        }
+    }
+}
